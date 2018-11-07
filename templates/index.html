@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block bb %}
+    <h1>여기는 index!!!</h1>
+    {% for todo in todos %}
+        <div class="jumbotron">
+            <div class="row">
+                <div class="col">
+                <h5>{{todo.todo}}</h5>
+                <h5>{{todo.deadline}}</h5>
+                </div>
+                <div class="col">
+                    <button type="button" class="btn btn-outline-primary"><a href="/todos/{{todo.id}}/upgrade">수정</a></button>
+                    <button type="button" class="btn btn-outline-secondary"><a href="/todos/{{todo.id}}/delete" onclick="return confirm('완료하시겠습니까? ')">완료</a></button>
+                    
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+{% endblock %}
